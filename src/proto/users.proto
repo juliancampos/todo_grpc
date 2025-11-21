@@ -1,0 +1,25 @@
+syntax = 'proto3';
+
+service UserService {
+    rpc List (Void) returns (UserResponse);
+    rpc Find (UserRequest) returns (UserFoundResponse);
+}
+
+message Void {}
+
+message User {
+    int32 id = 1;
+    string name = 2;
+}
+
+message UserResponse {
+    repeated User users = 1;
+}
+
+message UserFoundResponse {
+    User user = 1;
+}
+
+message UserRequest {
+    int32 id = 1;
+}
