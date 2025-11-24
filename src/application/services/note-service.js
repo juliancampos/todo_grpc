@@ -1,5 +1,3 @@
-const loader = require('../utils/loader')
-
 const notes = [
   { id: 1, title: 'Note 1', content: 'Content 1' },
   { id: 2, title: 'Note 2', content: 'Content 2' }
@@ -15,12 +13,7 @@ function Find({ request: { id } }, callback) {
   return callback(null, { note })
 }
 
-const loadNotesProto = () => {
-  return loader.load('notes.proto')
-}
-
 module.exports = {
-  loadNotesProto,
   List,
   Find
 }

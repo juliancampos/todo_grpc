@@ -1,11 +1,10 @@
-const grpc = require('@grpc/grpc-js')
-const protoLoader = require('@grpc/proto-loader')
-const path = require('path')
+const loadEntityGrpc = require('./load-entity-grpc');
 
-const protoObject = protoLoader.loadSync(path.resolve(__dirname, './src/proto/users.proto'))
-const UsersDefinition = grpc.loadPackageDefinition(protoObject)
+const {
+  EntityDefinition: UsersDefinition, grpc, HOST
+} = loadEntityGrpc('users.proto');
 
-const client = new UsersDefinition.UserService('127.0.0.1:50051', grpc.credentials.createInsecure())
+const client = new UsersDefinition.UserService( `${HOST}`, grpc.credentials.createInsecure());
 
 client.list({}, (err, notes) => {
   if (err) throw err

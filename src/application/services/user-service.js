@@ -1,5 +1,3 @@
-const loader = require('../utils/loader')
-
 const users = [
     { id: 1, name: 'John Doe' },
     { id: 2, name: 'Jane Smith' }
@@ -13,12 +11,7 @@ const Find = ({ request: { id } }, callback) => {
     return callback(null, { user });
 }
 
-const loadUsersProto = () => {
-    return loader.load('users.proto')
-}
-
 module.exports = {
-    loadUsersProto,
     List,
     Find
 }

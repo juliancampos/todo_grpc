@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "node --env-file=.env index.js"
+    "start": "node --env-file=.env index.js",
+    "client-notes": "node --env-file=.env clients/notes-grpc.js",
+    "client-users": "node --env-file=.env clients/users-grpc.js"
   },
   "keywords": [],
   "author": "Julian Oliveira Campos",
